@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/widgets/app_Theams.dart'; // <-- Import the theme config
 
 class SectionTitle extends StatelessWidget {
   final String title;
@@ -6,7 +7,10 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title, style: Theme.of(context).textTheme.titleLarge);
+    return Text(
+      title,
+      style: AppThemes.titleStyle, // <-- Use centralized style
+    );
   }
 }
 
@@ -26,7 +30,7 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: const Color(0xFF232124),
+      color: AppThemes.cardBg, // <-- Use centralized color
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: ListTile(
@@ -44,12 +48,15 @@ class TaskCard extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: const TextStyle(
+          style: AppThemes.bodyStyle.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.w500,
-          ),
+          ), // <-- Use centralized style
         ),
-        subtitle: Text(date, style: const TextStyle(color: Colors.white54)),
+        subtitle: Text(
+          date,
+          style: AppThemes.bodyStyle.copyWith(color: Colors.white54),
+        ),
         trailing: completed
             ? const Icon(Icons.check_circle, color: Color(0xFFB77BFC))
             : const Icon(
@@ -57,7 +64,7 @@ class TaskCard extends StatelessWidget {
                 color: Color(0xFFB77BFC),
               ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        tileColor: const Color(0xFF232124),
+        tileColor: AppThemes.cardBg, // <-- Use centralized color
       ),
     );
   }
