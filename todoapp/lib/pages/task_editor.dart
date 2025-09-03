@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/widgets/app_Theams.dart'; // <-- Import the theme config
 
 class EditTaskScreen extends StatefulWidget {
   const EditTaskScreen({super.key});
@@ -44,9 +43,9 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
           },
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Mobile App Research",
-          style: AppThemes.titleStyle, // <-- Use centralized style
+          style: TextStyle(fontSize: 22),
         ),
       ),
       body: Padding(
@@ -57,24 +56,16 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.chevron_left,
-                  color: AppThemes.primary,
-                  size: 28,
-                ), // <-- Use theme color
+                Icon(Icons.chevron_left, color: Color(0xFFB77BFC), size: 28),
                 Text(
                   "08 March",
                   style: TextStyle(
-                    color: AppThemes.primary, // <-- Use theme color
+                    color: Color(0xFFB77BFC),
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Icon(
-                  Icons.chevron_right,
-                  color: AppThemes.primary,
-                  size: 28,
-                ), // <-- Use theme color
+                Icon(Icons.chevron_right, color: Color(0xFFB77BFC), size: 28),
               ],
             ),
             const SizedBox(height: 18),
@@ -93,7 +84,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                       decoration: isSelected
                           ? BoxDecoration(
                               border: Border.all(
-                                color: AppThemes.primary, // <-- Use theme color
+                                color: Color(0xFFB77BFC),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -127,12 +118,14 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
             const SizedBox(height: 25),
             Text(
               "Schedule",
-              style: AppThemes.titleStyle, // <-- Use theme style
+              style:
+                  Theme.of(context).textTheme.titleMedium ??
+                  TextStyle(fontSize: 18, color: Colors.white),
             ),
             const SizedBox(height: 12),
             Container(
               decoration: BoxDecoration(
-                color: AppThemes.cardBg, // <-- Use theme color
+                color: const Color(0xFF232124),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextField(
@@ -146,13 +139,13 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                     vertical: 14,
                   ),
                 ),
-                style: AppThemes.bodyStyle, // <-- Use theme style
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(height: 14),
             Container(
               decoration: BoxDecoration(
-                color: AppThemes.cardBg, // <-- Use theme color
+                color: const Color(0xFF232124),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextField(
@@ -168,7 +161,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                     vertical: 14,
                   ),
                 ),
-                style: AppThemes.bodyStyle, // <-- Use theme style
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(height: 22),
@@ -176,12 +169,16 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
               children: [
                 Text(
                   "Start Time",
-                  style: AppThemes.bodyStyle, // <-- Use theme style
+                  style:
+                      Theme.of(context).textTheme.bodyMedium ??
+                      TextStyle(color: Colors.white70),
                 ),
                 const SizedBox(width: 57),
                 Text(
                   "End Time",
-                  style: AppThemes.bodyStyle, // <-- Use theme style
+                  style:
+                      Theme.of(context).textTheme.bodyMedium ??
+                      TextStyle(color: Colors.white70),
                 ),
               ],
             ),
@@ -192,7 +189,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                   child: Container(
                     height: 48,
                     decoration: BoxDecoration(
-                      color: AppThemes.cardBg, // <-- Use theme color
+                      color: Color(0xFF232124),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -202,7 +199,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                         const SizedBox(width: 8),
                         Text(
                           "06 : 00 PM",
-                          style: AppThemes.bodyStyle, // <-- Use theme style
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
@@ -213,7 +210,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                   child: Container(
                     height: 48,
                     decoration: BoxDecoration(
-                      color: AppThemes.cardBg, // <-- Use theme color
+                      color: Color(0xFF232124),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -223,7 +220,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                         const SizedBox(width: 8),
                         Text(
                           "10 : 00 PM",
-                          style: AppThemes.bodyStyle, // <-- Use theme style
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
@@ -234,7 +231,9 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
             const SizedBox(height: 22),
             Text(
               "Priority",
-              style: AppThemes.bodyStyle, // <-- Use theme style
+              style:
+                  Theme.of(context).textTheme.bodyMedium ??
+                  TextStyle(color: Colors.white70),
             ),
             const SizedBox(height: 12),
             Row(
@@ -277,9 +276,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                 Expanded(
                   child: Text(
                     "Get alert for this task",
-                    style: AppThemes.bodyStyle.copyWith(
-                      fontSize: 15,
-                    ), // <-- Use theme style
+                    style: TextStyle(color: Colors.white70, fontSize: 15),
                   ),
                 ),
                 Switch(
@@ -310,11 +307,11 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                       onPressed: () {},
                       child: Text(
                         "Edit Task",
-                        style: AppThemes.titleStyle.copyWith(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
-                        ), // <-- Use theme style
+                        ),
                       ),
                     ),
                   ),
@@ -324,18 +321,18 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
                   child: Container(
                     height: 52,
                     decoration: BoxDecoration(
-                      color: AppThemes.cardBg, // <-- Use theme color
+                      color: Color(0xFF232124),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: MaterialButton(
                       onPressed: () {},
                       child: Text(
                         "Delete Task",
-                        style: AppThemes.titleStyle.copyWith(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
-                        ), // <-- Use theme style
+                        ),
                       ),
                     ),
                   ),
@@ -346,7 +343,7 @@ class _ViewEditTaskScreenState extends State<EditTaskScreen> {
           ],
         ),
       ),
-      backgroundColor: AppThemes.scaffoldBg, // <-- Use theme
+      backgroundColor: Color(0xFF181218),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/pages/task_editor.dart';
-import 'package:todoapp/widgets/app_Theams.dart'; // <-- Import the theme config
 
 class CreateTaskScreen extends StatefulWidget {
   const CreateTaskScreen({super.key});
@@ -38,11 +37,9 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
             Navigator.pop(context);
           },
         ),
+
         centerTitle: true,
-        title: const Text(
-          "Create new task",
-          style: AppThemes.titleStyle, // <-- Use centralized style
-        ),
+        title: const Text("Create new task", style: TextStyle(fontSize: 22)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -52,24 +49,16 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.chevron_left,
-                  color: AppThemes.primary,
-                  size: 28,
-                ), // <-- Use theme color
+                Icon(Icons.chevron_left, color: Color(0xFFB77BFC), size: 28),
                 Text(
                   "04 Mar - 11 Mar",
                   style: TextStyle(
-                    color: AppThemes.primary, // <-- Use theme color
+                    color: Color(0xFFB77BFC),
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Icon(
-                  Icons.chevron_right,
-                  color: AppThemes.primary,
-                  size: 28,
-                ), // <-- Use theme color
+                Icon(Icons.chevron_right, color: Color(0xFFB77BFC), size: 28),
               ],
             ),
             const SizedBox(height: 18),
@@ -88,7 +77,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                       decoration: isSelected
                           ? BoxDecoration(
                               border: Border.all(
-                                color: AppThemes.primary, // <-- Use theme color
+                                color: const Color(0xFFB77BFC),
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(12),
@@ -120,14 +109,11 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               ),
             ),
             const SizedBox(height: 25),
-            Text(
-              "Schedule",
-              style: AppThemes.titleStyle,
-            ), // <-- Use theme style
+            Text("Schedule", style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 12),
             Container(
               decoration: BoxDecoration(
-                color: AppThemes.cardBg, // <-- Use theme color
+                color: const Color(0xFF232124),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextField(
@@ -141,13 +127,13 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     vertical: 14,
                   ),
                 ),
-                style: AppThemes.bodyStyle, // <-- Use theme style
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(height: 14),
             Container(
               decoration: BoxDecoration(
-                color: AppThemes.cardBg, // <-- Use theme color
+                color: const Color(0xFF232124),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextField(
@@ -163,7 +149,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     vertical: 14,
                   ),
                 ),
-                style: AppThemes.bodyStyle, // <-- Use theme style
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(height: 22),
@@ -171,13 +157,10 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               children: [
                 Text(
                   "Start Time",
-                  style: AppThemes.bodyStyle, // <-- Use theme style
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(width: 57),
-                Text(
-                  "End Time",
-                  style: AppThemes.bodyStyle,
-                ), // <-- Use theme style
+                Text("End Time", style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
             const SizedBox(height: 10),
@@ -187,7 +170,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                   child: Container(
                     height: 48,
                     decoration: BoxDecoration(
-                      color: AppThemes.cardBg, // <-- Use theme color
+                      color: Color(0xFF232124),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -197,7 +180,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                         const SizedBox(width: 8),
                         Text(
                           "06 : 00 PM",
-                          style: AppThemes.bodyStyle, // <-- Use theme style
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
@@ -208,7 +191,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                   child: Container(
                     height: 48,
                     decoration: BoxDecoration(
-                      color: AppThemes.cardBg, // <-- Use theme color
+                      color: Color(0xFF232124),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -218,7 +201,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                         const SizedBox(width: 8),
                         Text(
                           "09 : 00 PM",
-                          style: AppThemes.bodyStyle, // <-- Use theme style
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
@@ -227,7 +210,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               ],
             ),
             const SizedBox(height: 22),
-            Text("Priority", style: AppThemes.bodyStyle), // <-- Use theme style
+            Text("Priority", style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(height: 12),
             Row(
               children: List.generate(priorities.length, (idx) {
@@ -240,9 +223,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                     margin: EdgeInsets.only(right: 12),
                     padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
                     decoration: BoxDecoration(
-                      color: selected
-                          ? Colors.transparent
-                          : AppThemes.cardBg, // <-- Use theme color
+                      color: selected ? Colors.transparent : Color(0xFF232124),
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         color: selected ? Colors.white : Colors.white54,
@@ -269,7 +250,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                 Expanded(
                   child: Text(
                     "Get alert for this task",
-                    style: AppThemes.bodyStyle, // <-- Use theme style
+                    style: TextStyle(color: Colors.white70, fontSize: 15),
                   ),
                 ),
                 Switch(
@@ -306,11 +287,11 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                 },
                 child: Text(
                   "Create Task",
-                  style: AppThemes.titleStyle.copyWith(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
-                  ), // <-- Use theme style
+                  ),
                 ),
               ),
             ),

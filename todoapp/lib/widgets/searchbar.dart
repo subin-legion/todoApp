@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/widgets/app_Theams.dart'; // <-- Import the theme config
 
 class SearchBar extends StatelessWidget {
   @override
@@ -7,11 +6,9 @@ class SearchBar extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         filled: true,
-        fillColor: AppThemes.cardBg, // <-- Use centralized color
+        fillColor: const Color(0xFF232124),
         hintText: "Search Task Here",
-        hintStyle: AppThemes.bodyStyle.copyWith(
-          color: Colors.white54,
-        ), // <-- Use centralized style
+        hintStyle: const TextStyle(color: Colors.white54),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,
@@ -19,9 +16,7 @@ class SearchBar extends StatelessWidget {
         prefixIcon: const Icon(Icons.search, color: Colors.white54),
         contentPadding: const EdgeInsets.symmetric(vertical: 0),
       ),
-      style: AppThemes.bodyStyle.copyWith(
-        color: Colors.white,
-      ), // <-- Use centralized style
+      style: const TextStyle(color: Colors.white),
     );
   }
 }
