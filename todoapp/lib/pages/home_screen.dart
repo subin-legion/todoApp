@@ -32,10 +32,11 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: Colors.black,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  'assets/images/person.png',
-                  fit: BoxFit.contain,
-                ),
+                child: Icon(Icons.person, size: 40, color: Colors.white),
+                // Image.asset(
+                //   'assets/images/person.png',
+                //   fit: BoxFit.contain,
+                // ),
               ),
             ),
           ),
@@ -110,7 +111,7 @@ class GradientFAB extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const CreateTaskScreen()),
+          MaterialPageRoute(builder: (context) => CreateTaskScreen()),
         );
       },
       child: SizedBox(
